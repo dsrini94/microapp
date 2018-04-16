@@ -1,22 +1,33 @@
-//importing React and React Native moduiles
-import React,{Component} from 'react';
-import {View, Text, StyleSheet, ImageBackground, ScrollView, Image, TouchableOpacity} from 'react-native';
+// importing React and React Native moduiles
+import React, { Component } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import { DrawerNavigator } from 'react-navigation';
 
+import FlatListSwiper from './../components/flatListSwiper';
+import Login from './login';
+import Home from './newHomePage';
+import MicroComponents from './newMCHome';
+import Opportunities from './Opportunities';
+import TechStack from './TechStack';
 
-import FlatListSwiper from './../components/flatListSwiper.js'
-
-
-export default class NewHomePage extends Component
-{
-  render()
-  {
-    return(
-        <ScrollView style={styles.scrollContainer}>
-
+export default class NewHomePage extends Component {
+  render() {
+    return (
+      <ScrollView style={styles.scrollContainer}>
         <View>
-
           <View>
-            <ImageBackground source={require('./../../images/background.jpg')} style={styles.backgroundImageContainer}>
+            <ImageBackground
+              source={require('./../../images/background.jpg')}
+              style={styles.backgroundImageContainer}
+            >
               <View style={styles.trendingContainer}>
                 <Text style={styles.heading}>Trending in Rapid Prototype</Text>
                 <FlatListSwiper />
@@ -31,106 +42,155 @@ export default class NewHomePage extends Component
           </View>
 
           <View style={styles.categoryContainer}>
-              <View style={styles.category}>
-                <TouchableOpacity style={styles.category} onPress={()=>{this.props.navigation.navigate('Opportunities')}}>
-                  <Image source={require('./../../images/coding.png')} style={styles.imageStyle}/>
-                  <Text style={styles.heading1}>Opportunities</Text>
-                </TouchableOpacity>
-              </View>
+            <View style={styles.category}>
+              <TouchableOpacity
+                style={styles.category}
+                onPress={() => {
+                  this.props.navigation.navigate('Opportunities');
+                }}
+              >
+                <Image source={require('./../../images/coding.png')} style={styles.imageStyle} />
+                <Text style={styles.heading1}>Opportunities</Text>
+              </TouchableOpacity>
+            </View>
 
-              <View style={styles.category}>
-                <TouchableOpacity style={styles.category} onPress={()=>{this.props.navigation.navigate('MCHomepage')}}>
-                  <Image source={require('./../../images/puzzle.png')} style={styles.imageStyle}/>
-                  <Text style={styles.heading1}>Micro Components</Text>
-                </TouchableOpacity>
-              </View>
+            <View style={styles.category}>
+              <TouchableOpacity
+                style={styles.category}
+                onPress={() => {
+                  this.props.navigation.navigate('MCHomepage');
+                }}
+              >
+                <Image source={require('./../../images/puzzle.png')} style={styles.imageStyle} />
+                <Text style={styles.heading1}>Micro Components</Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
           <View style={styles.categoryContainer}>
-              <View style={styles.category}>
-                <TouchableOpacity style={styles.category} onPress={()=>{this.props.navigation.navigate('techStack')}}>
-                  <Image source={require('./../../images/responsive.png')} style={styles.imageStyle}/>
-                  <Text style={styles.heading1}>Tech Stack</Text>
-                </TouchableOpacity>
-              </View>
+            <View style={styles.category}>
+              <TouchableOpacity
+                style={styles.category}
+                onPress={() => {
+                  this.props.navigation.navigate('techStack');
+                }}
+              >
+                <Image
+                  source={require('./../../images/responsive.png')}
+                  style={styles.imageStyle}
+                />
+                <Text style={styles.heading1}>Tech Stack</Text>
+              </TouchableOpacity>
+            </View>
 
-              <View style={styles.category}>
-                <TouchableOpacity style={styles.category} onPress={()=>{this.props.navigation.navigate('/Opportunities')}}>
-                  <Image source={require('./../../images/video.png')} style={styles.imageStyle}/>
-                  <Text style={styles.heading1}>Rapid Talks</Text>
-                </TouchableOpacity>
-              </View>
+            <View style={styles.category}>
+              <TouchableOpacity
+                style={styles.category}
+                onPress={() => {
+                  this.props.navigation.navigate('/Opportunities');
+                }}
+              >
+                <Image source={require('./../../images/video.png')} style={styles.imageStyle} />
+                <Text style={styles.heading1}>Rapid Talks</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-
         </View>
-
-        </ScrollView>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  backgroundImageContainer:{
-    height:'100%',
-    width:'100%',
-    flex:1
+  backgroundImageContainer: {
+    height: '100%',
+    width: '100%',
+    flex: 1,
   },
-  center:{
-    alignItems:'center',
+  center: {
+    alignItems: 'center',
   },
-  headingBanerText:{
-    fontSize:20,
-    color:'white',
-    textAlign:'center',
-    padding:20,
-    backgroundColor:'#a5154a'
+  headingBanerText: {
+    fontSize: 20,
+    color: 'white',
+    textAlign: 'center',
+    padding: 20,
+    backgroundColor: '#a5154a',
   },
-  headingBaner:{
-    backgroundColor:'white',
-    width:300,
-    marginTop:-30
+  headingBaner: {
+    backgroundColor: 'white',
+    width: 300,
+    marginTop: -30,
   },
-  heading1:{
-    fontSize:18,
-    textAlign:'center',
-    color:'black',
-    fontWeight:'bold',
+  heading1: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: 'black',
+    fontWeight: 'bold',
   },
-  imageStyle:{
-    marginTop:20,
-    height:80,
-    width:80,
-    marginBottom:20,
-    marginTop:50,
-    alignItems:'center',
+  imageStyle: {
+    marginTop: 20,
+    height: 80,
+    width: 80,
+    marginBottom: 20,
+    marginTop: 50,
+    alignItems: 'center',
   },
-  scrollContainer:{
-    flex:1
+  scrollContainer: {
+    flex: 1,
   },
-  trendingContainer:{
-    backgroundColor:'rgba(0, 0, 0,0.2)',
-    padding:10,
+  trendingContainer: {
+    backgroundColor: 'rgba(0, 0, 0,0.2)',
+    padding: 10,
   },
-  heading:{
-    fontSize:20,
-    textAlign:'center',
-    color:'white',
-    fontWeight:'bold',
-    marginBottom:20,
+  heading: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
-  categoryContainer:{
-    flexDirection:'row',
+  categoryContainer: {
+    flexDirection: 'row',
   },
-  textContainer:{
-    flex:1
+  textContainer: {
+    flex: 1,
   },
-  category:{
-    alignItems:'center',
-    flex:1,
-    flexDirection:'column',
-    justifyContent:'space-around'
+  category: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
   },
-  categoryText:{
-    flexDirection:'row',
-  }
-})
+  categoryText: {
+    flexDirection: 'row',
+  },
+});
+
+// export const Drawer = DrawerNavigator({
+//   Login: {
+//     screen: Login,
+//   },
+//   Home: {
+//     screen: Home,
+//   },
+//   MicroComponents: {
+//     screen: MicroComponents,
+//   },
+//   Opportunities: {
+//     screen: Opportunities,
+//   },
+//   TechStack: {
+//     screen: TechStack,
+//   },
+// });
+
+// HomeScreen.navigationOptions = {
+//   drawer: () => ({
+//     label: 'Home',
+//   }),
+//   header: (navigation, defaultHeader) => ({
+//     ...defaultHeader,
+//     title: 'Items list',
+//   }),
+// };

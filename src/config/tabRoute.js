@@ -1,49 +1,49 @@
-import { TabNavigator, TabBarBottom } from 'react-navigation';
+import { TabNavigator } from 'react-navigation';
 
-import Done from './../components/donePage.js';
-import Doing from './../components/doingPage.js';
-import Issue from './../components/issuesPage.js';
+import Done from './../components/donePage';
+import Doing from './../components/doingPage';
+import Issue from './../components/issuesPage';
 
 export default TabNavigator(
   {
-    Done:{
+    Done: {
       screen: Done,
-      navigationOptions:{
-        tabStyle:{
-          fontWeight:"bold"
-        }
-      }
+      navigationOptions: {
+        tabStyle: {
+          fontWeight: 'bold',
+        },
+      },
     },
-    Doing:{
-      screen: Doing
+    Doing: {
+      screen: Doing,
     },
-    Issues:{
-      screen: Issue
-    }
+    Issues: {
+      screen: Issue,
+    },
   },
   {
     // tabBarComponent: TabBarBottom,
     // tabBarPosition: 'bottom',
     tabBarOptions: {
-  inactiveTintColor:"#000",
-  activeTintColor: '#e91e63',
-  labelStyle: {
-    fontSize: 18, fontWeight:"600"
-  },
-  indicatorStyle: {
-      borderBottomColor: '#e91e63',
-      borderBottomWidth: 2,
-    },
-  style: {
-    backgroundColor: '#fff',
+      inactiveTintColor: '#000',
+      activeTintColor: '#e91e63',
+      labelStyle: {
+        fontSize: 18,
+        fontWeight: '600',
       },
-}
+      indicatorStyle: {
+        borderBottomColor: '#e91e63',
+        borderBottomWidth: 2,
+      },
+      style: {
+        backgroundColor: '#fff',
+      },
+    },
     // tabBarOptions: {
 
-
-      // tabStyle: {
-      //   fontWeight: "bold"
-      // }
+    // tabStyle: {
+    //   fontWeight: "bold"
+    // }
     // },
     // swipeEnabled: false,
   },
